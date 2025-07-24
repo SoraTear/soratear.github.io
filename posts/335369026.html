@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Git速查 | 雫屋</title><meta name="author" content="鏡野雫"><meta name="copyright" content="鏡野雫"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Git的一些常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git速查">
+<meta property="og:url" content="http://soratear.moe/posts/335369026.html">
+<meta property="og:site_name" content="雫屋">
+<meta property="og:description" content="Git的一些常用命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://soratear.moe/img/avatar.jpg">
+<meta property="article:published_time" content="2025-07-13T10:17:41.000Z">
+<meta property="article:modified_time" content="2025-07-15T19:13:41.956Z">
+<meta property="article:author" content="鏡野雫">
+<meta property="article:tag" content="软件开发">
+<meta property="article:tag" content="版本控制">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://soratear.moe/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Git速查",
+  "url": "http://soratear.moe/posts/335369026.html",
+  "image": "http://soratear.moe/img/avatar.jpg",
+  "datePublished": "2025-07-13T10:17:41.000Z",
+  "dateModified": "2025-07-15T19:13:41.956Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "鏡野雫",
+      "url": "http://soratear.moe"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="http://soratear.moe/posts/335369026.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git速查',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#90a4ae;--hl-bg:#f6f8fa;--hltools-bg:#e6ebf1;--hltools-color:#90a4ae;--hlnumber-bg:#f6f8fa;--hlnumber-color:rgba(144,164,174,0.5);--hlscrollbar-bg:#dce4eb;--hlexpand-bg:linear-gradient(180deg,rgba(246,248,250,0.1),rgba(246,248,250,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/default_top_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/navlogo.png" alt="Logo"><span class="site-name">雫屋</span></a><a class="nav-page-title" href="/"><span class="site-name">Git速查</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于作者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Git速查</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-13T10:17:41.000Z" title="发表于 2025-07-13 18:17:41">2025-07-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-15T19:13:41.956Z" title="更新于 2025-07-16 03:13:41">2025-07-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">738</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;距离此文章最后更新已经&quot;,&quot;messageNext&quot;:&quot;天, 请注意内容时效性.&quot;,&quot;postUpdate&quot;:&quot;2025-07-16 03:13:41&quot;}" hidden></div><h1>前言</h1>
+<p>本文需要读者对Git有基本的了解。</p>
+<h1>本地仓库</h1>
+<p>在当前目录（包括其子目录）创建Git版本库：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">init</span></span></code></pre></div></div></figure>
+<p>添加文件到暂存区：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">add</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;文件名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>将当前工作区所有的文件加入暂存区：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">add</span><span style="color: #24292E"> </span><span style="color: #032F62">.</span></span></code></pre></div></div></figure>
+<p>提交暂存区到本地版本库：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">commit</span><span style="color: #24292E"> </span><span style="color: #005CC5">-m</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;&lt;&quot;对本次更改的说明&quot;&gt;&quot;</span></span></code></pre></div></div></figure>
+<p>查看当前版本库状态：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">status</span></span></code></pre></div></div></figure>
+<p>查看工作区与暂存区差异：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">diff</span></span></code></pre></div></div></figure>
+<p>查看至当前版本的改动历史：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">log</span></span></code></pre></div></div></figure>
+<p>查看全部改动：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">reflog</span></span></code></pre></div></div></figure>
+<p>回退版本到最后的已提交状态：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">reset</span><span style="color: #24292E"> </span><span style="color: #005CC5">--hard</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;版本指针或版本号&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>还原指定文件到上次提交的状态：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">checkout</span><span style="color: #24292E"> </span><span style="color: #005CC5">--</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;文件名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>撤销暂存区的文件：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">reset</span><span style="color: #24292E"> </span><span style="color: #032F62">HEAD</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;文件名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>添加“删除仓库中指定文件”命令到暂存区：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">rm</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;文件名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>创建新分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>查看分支状态和当前分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span></span></code></pre></div></div></figure>
+<p>切换分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">switch</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>快速合并指定分支到当前分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">merge</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;被合并的分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>在新提交中合并指定分支到当前分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">merge</span><span style="color: #24292E"> </span><span style="color: #005CC5">--no-ff</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;被合并的分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>删除分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-d</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;要删除的分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>封存工作区和暂存区，恢复最后一次提交的状态：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">stash</span></span></code></pre></div></div></figure>
+<p>查看封存区：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">stash</span><span style="color: #24292E"> </span><span style="color: #032F62">list</span></span></code></pre></div></div></figure>
+<p>弹出封存的工作：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">stash</span><span style="color: #24292E"> </span><span style="color: #032F62">pop</span></span></code></pre></div></div></figure>
+<p>复制指定提交的修改：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">cherry-pick</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;指定提交版本号&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>给一个版本打标签：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">tag</span><span style="color: #24292E"> </span><span style="color: #005CC5">-a</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;标签名&quot;</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E"> </span><span style="color: #005CC5">-m</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;&lt;&quot;标签说明&quot;&gt;&quot;</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;版本号&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>查看所有标签：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">tag</span></span></code></pre></div></div></figure>
+<p>查看标签对应版本的信息：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">show</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;标签名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>删除标签：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">tag</span><span style="color: #24292E"> </span><span style="color: #005CC5">-d</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;标签名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<h1>远程仓库</h1>
+<p>重命名当前分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-M</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;新名字&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>关联本地仓库与远程仓库：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">remote</span><span style="color: #24292E"> </span><span style="color: #032F62">add</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #032F62">git@github.com:</span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;用户名&quot;</span><span style="color: #D73A49">&gt;</span><span style="color: #032F62">/</span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;仓库名&quot;</span><span style="color: #D73A49">&gt;</span><span style="color: #032F62">.git</span></span></code></pre></div></div></figure>
+<p>推送当前分支到远程仓库并关联两个分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span><span style="color: #24292E"> </span><span style="color: #005CC5">-u</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #032F62">main</span></span></code></pre></div></div></figure>
+<p>在已关联的分支上推送：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span></span></code></pre></div></div></figure>
+<p>查看远程库信息：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">remote</span><span style="color: #24292E"> </span><span style="color: #005CC5">-v</span></span></code></pre></div></div></figure>
+<p>解绑本地仓库和远程仓库：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">remote</span><span style="color: #24292E"> </span><span style="color: #032F62">rm</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span></span></code></pre></div></div></figure>
+<p>克隆远程仓库到本地：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">clone</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;远程仓库链接&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>关联本地分支与远程分支：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">--set-upstream-to=origin/</span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;分支名&quot;</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;分支名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>拉取且合并最新提交：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">pull</span></span></code></pre></div></div></figure>
+<p>将分歧后的本地更改整理到远程仓库的最新提交之后：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">rebase</span></span></code></pre></div></div></figure>
+<p>推送标签到远程仓库：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;标签名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure>
+<p>删除远程标签：</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #032F62">:refs/tags/</span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">&quot;标签名&quot;</span><span style="color: #D73A49">&gt;</span></span></code></pre></div></div></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://soratear.moe">鏡野雫</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://soratear.moe/posts/335369026.html">http://soratear.moe/posts/335369026.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://soratear.moe" target="_blank">雫屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a class="post-meta__tags" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/3907949027.html" title="HTML速查"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">HTML速查</div></div><div class="info-2"><div class="info-item-1">HTML基本用法</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/3180933990.html" title="CSS简记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-20</div><div class="info-item-2">CSS简记</div></div><div class="info-2"><div class="info-item-1">CSS的常用知识</div></div></div></a><a class="pagination-related" href="/posts/3907949027.html" title="HTML速查"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-19</div><div class="info-item-2">HTML速查</div></div><div class="info-2"><div class="info-item-1">HTML基本用法</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">本地仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">远程仓库</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2025 By 鏡野雫</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body></html>
